@@ -8,15 +8,15 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 }]);
 
 pokeApp.controller('c1', data);
-pokeApp.controller('c2', dat2);
 
-function data($scope) {
+function data($scope, $log) {
 	$scope.myBestTeamPokemon = [
-	{"id":1, "name":"dracaufeau"},
-	{"id":2, "name":"amphinobi"},
-	{"id":3, "name":"junko"},
-	{"id":4, "name":"lucario"},
-	{"id":5, "name":"drattak"},
-	{"id":6, "name":"voltali"}
-	]
+  	{id: 1, name: "dracaufeu"},
+  	{id: 2, name: "amphinobi"},
+  	{id: 3, name: "junko"},
+  	{id: 4, name: "lucario"},
+  	{id: 5, name: "drattak"},
+  	{id: 6, name: "voltali"}
+	];
+  $scope.$log = $log;
 }
