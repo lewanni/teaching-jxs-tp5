@@ -1,4 +1,4 @@
-var pokeApp = angular.module('pokedex', ['ngResource']);
+var pokeApp = angular.module('pokedexId', ['ngResource']);
 
 // With this you can inject POKEAPI url wherever you want
 pokeApp.constant('POKEAPI', 'http://pokeapi.co');
@@ -8,7 +8,6 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 }]);
 
 pokeApp.controller('c1', data);
-pokeApp.controller('c2', dat2);
 
 function data($scope) {
 	$scope.myBestTeamPokemon = [

@@ -13,7 +13,20 @@
 		<h1>Pokésir</h1>
 
 		<!-- Search -->
-		<div></div>
+		<div ng-controller="c1">
+			ID : <input type="text" ng-model="pokedexId"> 
+			<BR><BR>			
+			Nom pokémon : <input type="text" ng-model="pokedex">
+			<select ng-model="pokedex">
+     	 		<option ng-repeat="pokemon in myBestTeamPokemon | filter:pokedex | filter:pokedexId" value="{{pokemon.name}}">		
+					{{pokemon.name}}
+				</option>	
+			</select> 			
+			<BR>
+			<button ng-click="c2">
+				GO
+			</button>
+		</div>
 
 		<!-- Pokémon information -->
 		<div></div>
@@ -28,7 +41,5 @@
 
     <!-- Pokedex app -->
     <script src="js/pokedex.js"></script>
-
-
 </body>
 </html>
