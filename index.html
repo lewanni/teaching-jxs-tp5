@@ -8,12 +8,23 @@
 
 </head>
 <body ng-app="pokedex">
-
-	<div class="container">
-		<h1>Pokésir</h1>
-
+  <div class="container">
+    <h1>PokéBoss</h1>
 		<!-- Search -->
-		<div></div>
+		<div ng-controller="c1">
+      ID : <input type="text" id="id" ng-model="id">
+		  </br></br>
+		  Nom pokémon : <input type="text" id="nom" ng-model="nom">
+      <select ng-model="nom">
+        <option ng-repeat="pokemon in (myBestTeamPokemon | filter:id | filter:nom)" value="{{pokemon.name}}">
+          {{pokemon.name}}
+        </option>
+      </select>
+      </br>
+			<button type="button" ng-click="$log.log(nom)">
+				GO
+			</button>
+		</div>
 
 		<!-- Pokémon information -->
 		<div></div>
@@ -28,7 +39,5 @@
 
     <!-- Pokedex app -->
     <script src="js/pokedex.js"></script>
-
-
 </body>
 </html>
