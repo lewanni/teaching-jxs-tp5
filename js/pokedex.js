@@ -8,7 +8,7 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 }]);
 
 pokeApp.controller('c1', data);
-function data($scope, $log){
+function data($scope, $log , $http){
 	
 	$scope.myBestTeamPokemon = [
 		
@@ -21,6 +21,16 @@ function data($scope, $log){
 		
 	];
 	
-	$scope.$log = $log;
+	//$scope.$log = $log;
+	
+	$http.get("http://pokeapi.co/api/v1/pokedex/1").
+    success(function(data, status) {
+        $scope.myBestTeamPokemon1 = data.pokemon;
+        $log.info(data);
+        $scope.$log = $log
+    }).
+    error(function(data, status) {
+        document.getElementById("erreur").innerHTML = "Erreur lors de l'appel du json"
+    });
 }
 
