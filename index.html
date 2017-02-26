@@ -16,25 +16,27 @@
 			</br></br>
 			Nom pokémon : <input type="text" id="nom" ng-model="nom">
 			<select ng-model="nom">
-				<option ng-repeat="pokemon in (myBestTeamPokemon | filter:id | filter:nom)" value="{{pokemon.name}}">
-					{{pokemon.name}}
+				<option ng-repeat="pokemon in (lsAllPoke | filter:{entry_number:id} | filter:nom)" value="{{pokemon.pokemon_species.name}}">
+					{{pokemon.pokemon_species.name}}
 				</option>
 			</select>
 			</br> </br>
-			<button type="button" ng-click="$log.log(nom)">
-				GO (voir console)
+			<button type="button" ng-click="$log.log(infoPoke(nom, id))">
+				GO1 (voir console)
 			</button>
-		
+
 
 				<!-- Pokémon information -->
 			</br></br>
 			<div>
 				Liste des pokémons disponibles dans le pokédex (version US) : </br>
-				{{lsPoke}}
+        <button type="button" ng-click="$log.info(lsAllPoke)">
+  				GO2 (voir console)
+  			</button>
 			</div>
 		</div>
-	
-	
+
+
 
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
