@@ -24,9 +24,6 @@
 			<button type="button" ng-click="$log.log(infoPoke(nom, id))">
 				GO1 (voir console)
 			</button>
-
-
-				<!-- Pokémon information -->
 			</br></br>
 			<div>
 				Liste des pokémons disponibles dans le pokédex (version US) : </br>
@@ -35,6 +32,21 @@
   			</button>
 			</div>
 		</div>
+
+    <!-- Pokémon information -->
+    </br></br>
+    <div ng-controller="c2">
+      Information sur bulbizarre : </br>
+      Id : {{id}} <br>
+      Nom : {{name}} <br>
+      Attaques : <br>
+      <ul>
+				<li ng-repeat="a in attacks">
+					{{a.move.name}}
+				</li>
+			</ul>
+    </div>
+  </div>
 
 
 

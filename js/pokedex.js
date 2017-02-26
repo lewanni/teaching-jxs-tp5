@@ -9,7 +9,7 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 
 pokeApp.controller('c1', data);
 
-function data($scope, $log, $http, POKEAPI) {
+function data($scope, $log, $http, POKEAPI, infoPoke) {
 	$scope.lsPoke =
   [
   	{id: 1, name: "dracaufeu"},
@@ -22,12 +22,14 @@ function data($scope, $log, $http, POKEAPI) {
 
 	$scope.$log = $log;
 
+  //q10
   $http({
       method: 'GET',
       url: POKEAPI + "/api/v2/pokedex/1/"}).then(function successCallback(response) {
         $scope.lsAllPoke = response.data.pokemon_entries;
   });
 
+  //q10 améliorée
   $scope.infoPoke = function(namePoke, id) {
     for (var i = 0; i < $scope.lsAllPoke.length; i++) {
       if ($scope.lsAllPoke[i].pokemon_species.name == namePoke || $scope.lsAllPoke[i].entry_number == id) {
@@ -40,9 +42,25 @@ function data($scope, $log, $http, POKEAPI) {
   };
 }
 
-/*pokeApp.factory('InfoPoke', infoPoke);
+// q11 : création service
+pokeApp.factory('infoPoke', function($resource, POKEAPI) {
+  return $resource(POKEAPI + "/api/v2/pokemon/:id/", {id: '@id'});
+});
 
-function infoPoke() {
-	var infoPok = $resource("http://pokeapi.co/api/v1/type/:1/");
-	return infoPok;
-}*/
+// q12 : nouveau controller pour afficher les informations de bulbizarre
+pokeApp.controller('c2', data2);
+
+function data2($scope, infoPoke) {
+  var bulbi = infoPoke.get({id:1});
+  // $scope.id = bulbi.id;
+  // $scope.name = bulbi.name;
+  // $scope.attacks = bulbi.moves;
+  // console.log($scope.id);
+
+  bulbi.$promise.then(function (data) {
+    $scope.bulbi = data;
+    $scope.id = data.id;
+    $scope.name = data.name;
+    $scope.attacks = data.moves;
+  }, true);
+}
