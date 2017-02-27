@@ -1,48 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<meta charset="UTF-8">
+<title></title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
 
 </head>
 <body ng-app="pokedex">
-  <div class="container">
-    <h1>PokéBoss</h1>
+	<div class="container">
+		<h1>PokéBoss</h1>
 		<!-- Search -->
 		<div ng-controller="c1">
-      ID : <input type="text" id="id" ng-model="id">
-		  </br></br>
-		  Nom pokémon : <input type="text" id="nom" ng-model="nom">
-      <select ng-model="nom">
-        <option ng-repeat="pokemon in (myBestTeamPokemon | filter:id | filter:nom)" value="{{pokemon.name}}">
-          {{pokemon.name}}
-        </option>
-      </select>
-      </br>
-			<button type="button" ng-click="$log.log(nom)">
-				GO
-			</button>
+			ID : <input type="text" id="id" ng-model="id"> </br>
+			</br> Nom pokémon : <input type="text" id="nom" ng-model="nom"> <select
+				ng-model="nom">
+				<option
+					ng-repeat="pokemon in (myBestTeamPokemon | filter:id | filter:nom)"
+					value="{{pokemon.name}}">{{pokemon.name}}</option>
+			</select> </br>
+			<button type="button" ng-click="$log.log(nom)">GO</button>
 		</div>
 
-</br> </br>
-		
-		<h2>PokéBoss with HTTP</h2>
+		</br> </br>
+
+		<h2>PokéBoss with HTTP</h2> 
 		<div ng-controller="c1">
-      ID : <input type="text" id="id" ng-model="id">
-		  </br></br>
-		  Nom pokémon : <input type="text" id="nom" ng-model="nom">
-      <select ng-model="nom">
-        <option ng-repeat="pokemon in (myBestTeamPokemon1 | filter:id | filter:nom)" value="{{pokemon.name}}">
-          {{pokemon.name}}
-        </option>
-      </select>
-      </br>
-			<button type="button" ng-click="$log.log(nom)">
-				GO
-			</button>
+			ID : <input type="text" id="id" ng-model="id"> </br>
+			</br> Nom pokémon : <input type="text" id="nom" ng-model="nom"> 
+			<select
+				ng-model="nom">
+				<option
+					ng-repeat="pokemon in (myBestTeamPokemon1 | filter:id | filter:nom)"
+					value="{{pokemon}}">{{pokemon.name}}</option>
+			</select> </br>
+			<button type="button" ng-click="$log.log(nom)">GO</button>
 		</div>
+		
+			<h2>Détails du pokémon </h2>
+		<div ng-controller="c2">
+			
+			<p> 
+					<span class="">Id:</span> <strong >  {{myBestTeamPokemon2.id}} </strong><br>
+ 					 <span>Name:</span> <strong >  {{myBestTeamPokemon2.name}} </strong><br> 
+ 					
+ 					<span>Moves:</span>
+ 					
+ 					<strong ng-repeat= "monObj in myBestTeamPokemon2.moves" > {{monObj.name}} </strong><br>
+				</p> 
+			
+			
+			<button type="button" ng-click="$log.log(nom)">GO</button>
+		</div>
+
+           
+
+		<h2>Entrainement</h2>
+
+<!-- 		<input type="text" ng-model="query" /> <select ng-model='order'> -->
+<!-- 			<option value="username">Organiser par Nom</option> -->
+<!-- 			<option value="content">Organiser par Contenu</option> -->
+<!-- 		</select> -->
+
+<!-- 		<div -->
+<!-- 			ng-init="users=[{username:'Marc',content:'Salut les gens'}, {username:'Jean',content:'Je suis content'}, {username:'John',content:'First'}]"> -->
+
+<!-- 			<div -->
+<!-- 				ng-repeat="user in users | filter:{content:query} | orderBy:order"> -->
+<!-- 				<p> -->
+<!-- 					<strong> {{user.username}} </strong><br> {{user.content}} -->
+<!-- 				</p> -->
+
+<!-- 			</div> -->
+
+<!-- 		</div> -->
 
 
 
@@ -51,13 +82,13 @@
 
 	</div>
 
-    <!-- Dependencies -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-resource.min.js"></script>
+	<!-- Dependencies -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-resource.min.js"></script>
 
-    <!-- Pokedex app -->
-    <script src="js/pokedex.js"></script>
+	<!-- Pokedex app -->
+	<script src="js/pokedex.js"></script>
 </body>
 </html>
