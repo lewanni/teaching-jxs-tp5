@@ -1,0 +1,43 @@
+<h1>PokéNull</h1>
+<div ng-controller="c1">
+  <button type="button" ng-click="$log.info(lsAllPoke)">
+    Liste des pokémons disponibles dans le pokédex version US (voir console)
+  </button>
+  </br> </br>
+  <!-- Search -->
+  Sélectionnez un pokémon disponible dans le pokédex nationale <br> <br>
+  Numéro pokémon : <input type="text" id="id" ng-model="id">
+  <br> <br>
+  Nom pokémon : <input type="text" id="nom" ng-model="nom"> <br> <br>
+  <select ng-model="select">
+    <option ng-repeat="pokemon in (lsAllPoke | filter:{entry_number:id} | filter:nom)" value="{{pokemon.entry_number}}">
+      {{pokemon.entry_number}} : {{pokemon.pokemon_species.name}}
+    </option>
+  </select>
+  <br> <br>
+  <button type="button" ng-click="inPokeDetails(select)">
+    Afficher les informations du pokémon sélectionné
+  </button>
+</div>
+
+<!-- Pokémon information -->
+</br> </br>
+<div id="PokeService" ng-controller="c2">
+  Informations sur <b>{{name}}</b> : <br> <br>
+  <img src="https://img.pokemondb.net/artwork/{{name}}.jpg"> <!-- L'image vient d'une autre source car les sprites affichent des images du jeu qui sont petites -->
+  <img src="{{img1}}"> <img src="{{img2}}"> <img src="{{img3}}"> <img src="{{img4}}"> <br> <br>
+  Id : {{id}} <br>
+  Poids : {{poids}} kg <br>
+  Types :
+  <ul>
+    <li ng-repeat="t in types">
+      {{t.type.name}}
+    </li>
+  </ul>
+  Attaques :
+  <ul>
+    <li ng-repeat="a in attacks">
+      {{a.move.name}}
+    </li>
+  </ul>
+</div>

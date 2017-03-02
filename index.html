@@ -9,54 +9,16 @@
 </head>
 <body ng-app="pokedex">
   <div class="container">
-    <h1>PokéBoss</h1>
-		<!-- Search -->
-		<div ng-controller="c1">
-			ID : <input type="text" id="id" ng-model="id">
-			</br></br>
-			Nom pokémon : <input type="text" id="nom" ng-model="nom">
-			<select ng-model="nom">
-				<option ng-repeat="pokemon in (lsAllPoke | filter:{entry_number:id} | filter:nom)" value="{{pokemon.pokemon_species.name}}">
-					{{pokemon.pokemon_species.name}}
-				</option>
-			</select>
-			</br> </br>
-			<button type="button" ng-click="$log.log(infoPoke(nom, id))">
-				GO1 (voir console)
-			</button>
-			</br></br>
-			<div>
-				Liste des pokémons disponibles dans le pokédex (version US) : </br>
-        <button type="button" ng-click="$log.info(lsAllPoke)">
-  				GO2 (voir console)
-  			</button>
-			</div>
-		</div>
-
-    <!-- Pokémon information -->
-    </br></br>
-    <div ng-controller="c2">
-      Information sur bulbizarre : </br>
-      Id : {{id}} <br>
-      Nom : {{name}} <br>
-      Attaques : <br>
-      <ul>
-				<li ng-repeat="a in attacks">
-					{{a.move.name}}
-				</li>
-			</ul>
-    </div>
+    <ng-pokedex></ng-pokedex>
   </div>
 
+  <!-- Dependencies -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-resource.min.js"></script>
 
-
-    <!-- Dependencies -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-resource.min.js"></script>
-
-    <!-- Pokedex app -->
-    <script src="js/pokedex.js"></script>
+  <!-- Pokedex app -->
+  <script src="js/pokedex.js"></script>
 </body>
 </html>
