@@ -106,6 +106,7 @@ pokeApp.factory('PokeSearched', function() {
 });
 
 // fonctionne que sur firefox.............
+// posssible avec chrome � l'aide d'une app serverweb (ex: wamp)
 pokeApp.directive('ngPokedex', function() {
   return {
     restrict: 'E', // autorise la directive en tant qu'élément
