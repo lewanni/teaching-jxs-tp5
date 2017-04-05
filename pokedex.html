@@ -1,44 +1,73 @@
-<h1>PokéNull</h1>
-<div ng-controller="c1">
-  <button type="button" ng-click="$log.info(lsAllPoke)">
-    Liste des pokémons disponibles dans le pokédex version US (voir console)
-  </button>
-  </br> </br>
-  <!-- Search -->
-  Sélectionner un pokémon disponible dans le pokédex nationale <br> <br>
-  Numéro pokémon : <input type="text" id="id" ng-model="id">
-  <br> <br>
-  Nom pokémon : <input type="text" id="nom" ng-model="nom"> <br> <br>
-  <select ng-model="select">
-    <option ng-repeat="pokemon in (lsAllPoke | filter:{entry_number:id} | filter:nom)" value="{{pokemon.entry_number}}">
-      {{pokemon.entry_number}} : {{pokemon.pokemon_species.name}}
-    </option>
-  </select>
-  <br> <br>
-  <button type="button" ng-click="inPokeDetails(select)">
-    Afficher les informations du pokémon sélectionné
-  </button>
-</div>
+<div class="container">
+	<section>
+		<!-- Search -->
+		<div ng-controller="c1" class="row">
+      <button type="button" ng-click="$log.info(lsAllPoke)" class="btn btn-warning">
+        Liste des pokémons disponibles dans le pokédex version US (voir console)
+      </button>
+      <br> <br>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Recherche</h3>
+				</div>
+				<div class="panel-body">
+					<form class="form-inline">
+						<div class="input-group col-lg-3">
+							<input type="text" class="form-control" ng-model="id" placeholder="Rechercher par Id"/>
+						</div>
+						<div class="input-group col-lg-3">
+							<input type="text" class="form-control" ng-model="nom" placeholder="Rechercher par nom"/>
+						</div>
+						<div class="input-group col-lg-5">
+							<select class="form-control" ng-model="select">
+								<option value="{{pokemon.entry_number}}" ng-repeat="pokemon in (lsAllPoke | filter:{entry_number:id} | filter:nom)">
+                  {{pokemon.entry_number}} : {{pokemon.pokemon_species.name}}
+                </option>
+							</select>
+						</div>
+						<button type="button" ng-click="inPokeDetails(select)" class="btn btn-warning">
+              Afficher
+            </button>
+					</form>
+				</div>
+			</div>
+		</div>
 
-<!-- Pokémon information -->
-</br> </br>
-<div id="PokeService" ng-controller="c2">
-  Informations sur <b>{{name}}</b> : <br> <br>
-   <!-- L'image ci-dessous vient d'une autre source car les sprites affichent des images du jeu qui sont petites -->
-  <img src="https://img.pokemondb.net/artwork/{{name}}.jpg">
-  <img src="{{img1}}"> <img src="{{img2}}"> <img src="{{img3}}"> <img src="{{img4}}"> <br> <br>
-  Id : {{id}} <br>
-  Poids : {{poids}} kg <br>
-  Types :
-  <ul>
-    <li ng-repeat="t in types">
-      {{t.type.name}}
-    </li>
-  </ul>
-  Attaques :
-  <ul>
-    <li ng-repeat="a in attacks">
-      {{a.move.name}}
-    </li>
-  </ul>
+		<!-- Pokémon information -->
+		<div id="PokeService" ng-controller="c2" class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Informations</h3>
+				</div>
+				<div class="panel-body">
+          <div id="pokemonImg" class="col-lg-5">
+            <img src="https://img.pokemondb.net/artwork/{{name}}.jpg">
+            <br>
+            <img src="{{img1}}"> <img src="{{img2}}"> <img src="{{img3}}"> <img src="{{img4}}">
+					</div>
+					<ul id="pokemonDetails" class="col-lg-3">
+						<li><span class="">Id:</span>{{id}}</li>
+						<li><span>Nom : </span>{{name}}</li>
+            <li><span>Poids : </span>{{poids}} kg</li>
+            <li>
+              <span>Types : </span>
+              <ul class="list-inline">
+  							<li ng-repeat="t in types">
+                  {{t.type.name}} |
+                </li>
+  						</ul>
+            </li>
+					</ul>
+					<div class="col-lg-4">
+						<span>Attaques :</span>
+						<ul class="list-inline">
+							<li ng-repeat="a in attacks | orderBy:'attacks'">
+                {{a.move.name}}  |
+              </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>
