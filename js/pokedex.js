@@ -7,12 +7,12 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
 
+// controller 1 c1 qui répond de la q1 à q10
 pokeApp.controller('c1', data);
 
 function data($scope, $log, $http, POKEAPI, PokeSearched) {
-	$scope.lsPoke =
-  [
-  	{id: 1, name: "dracaufeu"},
+	$scope.lsPoke = [
+    {id: 1, name: "dracaufeu"},
   	{id: 2, name: "amphinobi"},
   	{id: 3, name: "junko"},
   	{id: 4, name: "lucario"},
@@ -57,7 +57,7 @@ pokeApp.factory('PokeService', function($resource, POKEAPI) {
 pokeApp.controller('c2', data2);
 
 function data2($scope, PokeService, PokeSearched) {
-  // q12 : affcihe les infos de bulbizarre le 1er pokémon du pokédex
+  // q12 : affiche les infos de bulbizarre le 1er pokémon du pokédex
   // var bulbi = PokeService.get({id:1});
   // // $scope.id = bulbi.id;
   // // $scope.name = bulbi.name;
@@ -106,7 +106,7 @@ pokeApp.factory('PokeSearched', function() {
 });
 
 // fonctionne que sur firefox.............
-// posssible avec chrome � l'aide d'une app serverweb (ex: wamp)
+// posssible avec chrome à l'aide d'une app serverweb (ex: nodejs, wamp,...)
 pokeApp.directive('ngPokedex', function() {
   return {
     restrict: 'E', // autorise la directive en tant qu'élément

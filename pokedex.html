@@ -5,7 +5,7 @@
   </button>
   </br> </br>
   <!-- Search -->
-  Sélectionnez un pokémon disponible dans le pokédex nationale <br> <br>
+  Sélectionner un pokémon disponible dans le pokédex nationale <br> <br>
   Numéro pokémon : <input type="text" id="id" ng-model="id">
   <br> <br>
   Nom pokémon : <input type="text" id="nom" ng-model="nom"> <br> <br>
@@ -24,7 +24,8 @@
 </br> </br>
 <div id="PokeService" ng-controller="c2">
   Informations sur <b>{{name}}</b> : <br> <br>
-  <img src="https://img.pokemondb.net/artwork/{{name}}.jpg"> <!-- L'image vient d'une autre source car les sprites affichent des images du jeu qui sont petites -->
+   <!-- L'image ci-dessous vient d'une autre source car les sprites affichent des images du jeu qui sont petites -->
+  <img src="https://img.pokemondb.net/artwork/{{name}}.jpg">
   <img src="{{img1}}"> <img src="{{img2}}"> <img src="{{img3}}"> <img src="{{img4}}"> <br> <br>
   Id : {{id}} <br>
   Poids : {{poids}} kg <br>
