@@ -1,4 +1,4 @@
-TP5 : AngularJS Pokémon
+## TP5 : AngularJS Pokémon
 API utilisée pour les services Angulars : [Pokéapi](http://pokeapi.co/)
 
 ## Contenu du code AngularJs
