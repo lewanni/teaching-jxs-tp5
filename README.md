@@ -1,5 +1,6 @@
-## TP5 : AngularJS Pokémon
-API utilisée pour les services AngularJs : [Pokéapi](http://pokeapi.co/)
+## TP5 : AngularJS v1.3.15 Pokémon
+- API utilisée pour les services AngularJs : [Pokéapi](http://pokeapi.co/)
+- Codé sous [Atom](https://atom.io/)
 
 ## Contenu du code AngularJs
   - 2 controllers
